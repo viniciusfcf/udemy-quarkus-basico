@@ -1,16 +1,17 @@
 package com.hellokoding.springboot.restful.product;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
-@Service
+import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
+@Service
 public class ProductService {
     private final ProductRespository productRespository;
+
+    public ProductService(ProductRespository productRespository) {
+        this.productRespository = productRespository;
+    }
 
     public List<Product> findAll() {
         return productRespository.findAll();
