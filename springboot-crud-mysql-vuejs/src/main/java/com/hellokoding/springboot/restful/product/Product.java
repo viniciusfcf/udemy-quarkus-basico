@@ -22,6 +22,14 @@ public class Product {
 
     private String description;
 
+    private BigDecimal price;
+
+    @CreationTimestamp
+    private Date createdAt;
+
+    @UpdateTimestamp
+    private Date updatedAt;
+
     public Long getId() {
         return id;
     }
@@ -46,11 +54,4 @@ public class Product {
         return updatedAt;
     }
 
-    private BigDecimal price;
-
-    @CreationTimestamp
-    private Date createdAt;
-
-    @UpdateTimestamp
-    private Date updatedAt;
 }
