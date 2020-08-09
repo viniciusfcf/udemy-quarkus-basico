@@ -7,7 +7,7 @@
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 spring/boot-jvm
+# docker run -i --rm --network host spring/boot-jvm
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1

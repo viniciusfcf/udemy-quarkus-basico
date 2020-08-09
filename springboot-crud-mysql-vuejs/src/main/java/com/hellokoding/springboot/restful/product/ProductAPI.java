@@ -30,7 +30,7 @@ public class ProductAPI {
     }
 
     @PostMapping
-    public ResponseEntity create(@Valid @RequestBody Product product) {
+    public ResponseEntity<Product> create(@Valid @RequestBody Product product) {
         return ResponseEntity.ok(productService.save(product));
     }
 
@@ -54,7 +54,7 @@ public class ProductAPI {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         if (!productService.findById(id).isPresent()) {
             ResponseEntity.badRequest().build();
         }

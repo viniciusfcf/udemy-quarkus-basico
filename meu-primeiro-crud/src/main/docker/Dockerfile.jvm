@@ -1,6 +1,8 @@
 ####
 # This Dockerfile is used in order to build a container that runs the Quarkus application in JVM mode
 #
+# docker run -it --network host -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=teste --name mysql --rm mysql:8.0.19 
+#
 # Before building the docker image run:
 #
 # mvn package
@@ -11,10 +13,13 @@
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/meu-primeiro-crud-jvm
+# docker run --name quarkus -i --rm --network host quarkus/meu-primeiro-crud-jvm
 #
 ###
+
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1
+#FROM adoptopenjdk/openjdk11-openj9:ubi-minimal
+
 
 ARG JAVA_PACKAGE=java-11-openjdk-headless
 ARG RUN_JAVA_VERSION=1.3.5
